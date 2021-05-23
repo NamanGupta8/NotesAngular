@@ -1,1 +1,42 @@
-<p>notes works!</p>
+<div class="container">
+  <h3 class="m-5 text-center">Notes&nbsp;&nbsp;&nbsp;<i class="bi bi-plus-circle-fill green" (click)="open(content)"></i></h3>
+  <div class="row gy-4">
+    <div class="col-sm-4" *ngFor="let note of notes">
+      <div class="card shadow-lg border-0" [style]="note.color">
+        <div class="card-body">
+          <div class="card-title text-center"><h5>{{note.title}}&nbsp;&nbsp;&nbsp;<i class="bi bi-x-circle-fill red" [id]="note.id" (click)="deleteNote(note.id)"></i></h5></div>
+          <hr/>
+          <p class="card-text mt-2">{{note.content}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="title">Notes Title</label>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Title" #notesTitle>
+        </div>
+      </div><br/>
+      <div class="form-group">
+        <label for="title">Notes Content</label>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Content" #notesContent>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="notesSave(notesTitle.value, notesContent.value);modal.close('Save click');">Save</button>
+  </div>
+</ng-template>

@@ -4,19 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
-import { ViewNotesComponent } from './notes/view-notes/view-notes.component';
-import { AddNotesComponent } from './notes/add-notes/add-notes.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotesComponent,
-    ViewNotesComponent,
-    AddNotesComponent
+    NotesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
